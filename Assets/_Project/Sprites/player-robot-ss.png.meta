@@ -1,0 +1,391 @@
+fileFormatVersion: 2
+guid: 7f3d1a61ad9854c4695e8edc55ea687d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2526684119881263160
+    second: player-robot-ss_0
+  - first:
+      213: -1419201317895957237
+    second: player-robot-ss_1
+  - first:
+      213: 5169448867001848613
+    second: player-robot-ss_2
+  - first:
+      213: -3511731020025549236
+    second: player-robot-ss_3
+  - first:
+      213: 7359891752817427372
+    second: player-robot-ss_4
+  - first:
+      213: 5332585963920664571
+    second: player-robot-ss_5
+  - first:
+      213: -5980008638201206241
+    second: player-robot-ss_6
+  - first:
+      213: -8231222210060431425
+    second: player-robot-ss_7
+  - first:
+      213: -3744423892265526120
+    second: player-robot-ss_8
+  - first:
+      213: 1995886600407060481
+    second: player-robot-ss_9
+  - first:
+      213: 5303365144888799769
+    second: player-robot-ss_10
+  - first:
+      213: -2247058102680786680
+    second: player-robot-ss_11
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 8
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 256
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 256
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: player-robot-ss_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 16.076923
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dca6dffb51322c244b0865c6c966cce3
+      internalID: 2526684119881263160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player-robot-ss_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16.076923
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1d7e1a80985b50488c738fc0c333015
+      internalID: -1419201317895957237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player-robot-ss_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16.076923
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f60092847f787c4f8cc51ad2ac153a2
+      internalID: 5169448867001848613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player-robot-ss_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16.076923
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efcd12ec8e9af154d815ae6d3b481167
+      internalID: -3511731020025549236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player-robot-ss_4
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 16.076923
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 216ca5521c0ad4544b02dd504c02e279
+      internalID: 7359891752817427372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player-robot-ss_5
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 16.076923
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94cfde5444269f54f99bc6b61acc11a7
+      internalID: 5332585963920664571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player-robot-ss_6
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 0
+        width: 16.076923
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed4bdaef307501d498f5bb4e51b145ea
+      internalID: -5980008638201206241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player-robot-ss_7
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 16.076923
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82d6f27c977497f44b75f5d3bb7b9ae0
+      internalID: -8231222210060431425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player-robot-ss_8
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 16.076923
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 286c4d7a125ef2146bce6cbf4c0328df
+      internalID: -3744423892265526120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player-robot-ss_9
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 16.076923
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55421a4edf45cdd409f42c1e65cb1d11
+      internalID: 1995886600407060481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player-robot-ss_10
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 0
+        width: 16.076923
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a4991eb9be400348962b1fe2cbd860e
+      internalID: 5303365144888799769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player-robot-ss_11
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 16.076923
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fabff5d6f1d79545b14576e2bf762ae
+      internalID: -2247058102680786680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
