@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &37270281
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 37270282}
+  m_Layer: 0
+  m_Name: InteractionOrigin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &37270282
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37270281}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.82, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6103634252335156904}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6103634252118125269
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,6 +120,7 @@ GameObject:
   - component: {fileID: 6103634252335156909}
   - component: {fileID: 6103634252335156886}
   - component: {fileID: 5470017758266886079}
+  - component: {fileID: 2114541530}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -106,9 +137,10 @@ Transform:
   m_GameObject: {fileID: 6103634252335156911}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.252, y: 5.0351, z: -2.421875}
-  m_LocalScale: {x: 0.5, y: 0.6702, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 6103634253787869869}
+  - {fileID: 37270282}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -337,6 +369,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthbar: {fileID: 6103634254027506894}
   energyBar: {fileID: 6103634252118125267}
+--- !u!114 &2114541530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6103634252335156911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd6c3e77077dadf40a47f2db02f27c55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxInteractionDistance: 0
+  interactionCircleRadius: 1.2
+  interactionCircleOrigin: {fileID: 37270282}
+  interactionKey: 102
 --- !u!1 &6103634252984942159
 GameObject:
   m_ObjectHideFlags: 0

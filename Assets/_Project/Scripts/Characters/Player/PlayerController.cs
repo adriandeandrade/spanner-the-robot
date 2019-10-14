@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
 	private float normalizedHorizontalSpeed = 0f;
 
 	// Components
-    private Animator animator;
+	private Animator animator;
 	private CharacterController2D controller2D;
 	private RaycastHit2D lastControllerColliderHit;
 	private Vector2 velocity;
@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
 	private void Awake()
 	{
 		controller2D = GetComponent<CharacterController2D>();
-        animator = GetComponent<Animator>();
+		animator = GetComponent<Animator>();
 
 		controller2D.onControllerCollidedEvent += OnControllerCollider;
 		controller2D.onTriggerEnterEvent += OnTriggerEnterEvent;
@@ -45,12 +45,32 @@ public class PlayerController : MonoBehaviour
 
 	private void OnTriggerEnterEvent(Collider2D col)
 	{
+		if (col.gameObject.CompareTag("Item"))
+		{
+			InteractableItem item = col.gameObject.GetComponent<InteractableItem>();
+
+			if (item != null)
+			{
+				item.HandleItem();
+			}
+		}
+		else if (col.gameObject.CompareTag("Laser"))
+		{
+			Toolbox.instance.GetGameManager().RespawnPlayer();
+		}
+		else if(col.gameObject.CompareTag("Platform"))
+		{
+			transform.parent = col.transform;
+		}
 
 	}
 
 	private void OnTriggerExitEvent(Collider2D col)
 	{
-
+		if(col.gameObject.CompareTag("Platform"))
+		{
+			transform.parent = null;
+		}
 	}
 
 	private void Update()
@@ -62,7 +82,7 @@ public class PlayerController : MonoBehaviour
 		if (horizontalInput.x == 1)
 		{
 			normalizedHorizontalSpeed = 1;
-            animator.SetBool("isMoving", true);
+			animator.SetBool("isMoving", true);
 
 			if (transform.localScale.x < 0f)
 			{
@@ -72,7 +92,7 @@ public class PlayerController : MonoBehaviour
 		else if (horizontalInput.x == -1)
 		{
 			normalizedHorizontalSpeed = -1;
-            animator.SetBool("isMoving", true);
+			animator.SetBool("isMoving", true);
 
 			if (transform.localScale.x > 0f)
 			{
@@ -82,7 +102,7 @@ public class PlayerController : MonoBehaviour
 		else
 		{
 			normalizedHorizontalSpeed = 0;
-            animator.SetBool("isMoving", false);
+			animator.SetBool("isMoving", false);
 		}
 
 		if (controller2D.isGrounded && Input.GetKeyDown(jumpButton))

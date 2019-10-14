@@ -7,6 +7,8 @@ public class Toolbox : MonoBehaviour
 	#region Singleton
 	public static Toolbox instance;
 
+	private GameManager gameManager;
+
 	private void InitSingleton()
 	{
 		if (instance == null)
@@ -21,7 +23,11 @@ public class Toolbox : MonoBehaviour
 	private void Awake()
 	{
 		InitSingleton();
-
+		gameManager = GetComponent<GameManager>();
 	}
 
+	public GameManager GetGameManager()
+	{
+		return gameManager;
+	}
 }

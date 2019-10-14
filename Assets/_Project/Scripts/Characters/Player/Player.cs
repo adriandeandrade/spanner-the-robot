@@ -50,16 +50,33 @@ public class Player : BaseEntity
 			}
 		}
 	}
+	public override void TakeDamage(float damageAmount)
+	{
+		RecalculateHealth(damageAmount);
+
+		if(currentHealth <= 0)
+        {
+            Toolbox.instance.GetGameManager().RespawnPlayer();
+        }
+	}
 
 	private IEnumerator NoEnergyRoutine()
 	{
 		while (noEnergy)
 		{
+			// TODO: Lerp healthbar
 			TakeDamage(healthDecreaseAmount);
 			playerStatsUI.UpdateHealthBar(maxHealth, currentHealth);
 			yield return new WaitForSeconds(healthDecreaseDelay);
 		}
 
 		yield break;
+	}
+
+	public void AddEnergy(float amountToAdd)
+	{
+		currentEnergy += amountToAdd;
+		currentEnergy = Mathf.Clamp(currentEnergy, 0, maxEnergy);
+		playerStatsUI.UpdateChargeBar(maxEnergy, currentEnergy);
 	}
 }
