@@ -9,8 +9,7 @@ public class Player : BaseEntity
 	[Header("Player Fields")]
 	[SerializeField] private float maxEnergy;
 	[SerializeField] private float energyDecreaseAmount;
-	[SerializeField] private float healthDecreaseAmount; // How much health to remove.
-	[SerializeField] private float healthDecreaseDelay; // For when theres no energy left.
+	[SerializeField] private float noEnergyMoveSpeed;
 
 	// Private Variables
 	private float currentEnergy;
@@ -18,10 +17,13 @@ public class Player : BaseEntity
 
 	// Components
 	private PlayerStatsUI playerStatsUI;
+	private PlayerController playerController;
 
 	public override void Awake()
 	{
 		base.Awake();
+
+		playerController = GetComponent<PlayerController>();
 
 		if (playerStatsUI == null)
 		{
@@ -46,7 +48,7 @@ public class Player : BaseEntity
 			if (!noEnergy)
 			{
 				noEnergy = true;
-				StartCoroutine(NoEnergyRoutine());
+				playerController.SetMoveSpeed(noEnergyMoveSpeed);
 			}
 		}
 	}
@@ -54,27 +56,22 @@ public class Player : BaseEntity
 	{
 		RecalculateHealth(damageAmount);
 
-		if(currentHealth <= 0)
-        {
-            Toolbox.instance.GetGameManager().RespawnPlayer();
-        }
-	}
-
-	private IEnumerator NoEnergyRoutine()
-	{
-		while (noEnergy)
+		if (currentHealth <= 0)
 		{
-			// TODO: Lerp healthbar
-			TakeDamage(healthDecreaseAmount);
-			playerStatsUI.UpdateHealthBar(maxHealth, currentHealth);
-			yield return new WaitForSeconds(healthDecreaseDelay);
+			Toolbox.instance.GetGameManager().RespawnPlayer();
 		}
 
-		yield break;
+		playerStatsUI.UpdateHealthBar(maxHealth, currentHealth);
 	}
 
 	public void AddEnergy(float amountToAdd)
 	{
+		if (noEnergy)
+		{
+			noEnergy = false;
+			playerController.ResetSpeed();
+		}
+
 		currentEnergy += amountToAdd;
 		currentEnergy = Mathf.Clamp(currentEnergy, 0, maxEnergy);
 		playerStatsUI.UpdateChargeBar(maxEnergy, currentEnergy);

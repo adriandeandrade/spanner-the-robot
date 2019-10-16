@@ -229,7 +229,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInteractable: 1
-  interactionUI: {fileID: 0}
+  objectData: {fileID: 11400000, guid: 1319375cd3ddf884a8586b20de88e698, type: 2}
+  objectToActivate: {fileID: 0}
 --- !u!1 &2453070836031657255
 GameObject:
   m_ObjectHideFlags: 0
@@ -518,6 +519,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f93b14ef18a6efe428ac3f19c501359c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactionText: {fileID: 0}
 --- !u!1 &2453070837331445459
 GameObject:
   m_ObjectHideFlags: 0

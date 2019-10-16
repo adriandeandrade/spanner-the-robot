@@ -15,12 +15,20 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private float jumpHeight = 4f;
 	[SerializeField] private KeyCode jumpButton = KeyCode.Space;
 
+	[Header("Knockback Settings")]
+	[SerializeField] private float knockbackDuration = 1f;
+	[SerializeField] private float knockbackDecreaseOverTime = 0.3f;
+
 	// Private Variables
 	private float normalizedHorizontalSpeed = 0f;
+	private float currentSpeed;
+	private bool knockback = false;
 
 	// Components
 	private Animator animator;
 	private CharacterController2D controller2D;
+	private SpriteRenderer spr;
+	private Player player;
 	private RaycastHit2D lastControllerColliderHit;
 	private Vector2 velocity;
 	private Vector2 horizontalInput;
@@ -29,10 +37,18 @@ public class PlayerController : MonoBehaviour
 	{
 		controller2D = GetComponent<CharacterController2D>();
 		animator = GetComponent<Animator>();
+		player = GetComponent<Player>();
+		spr = GetComponent<SpriteRenderer>();
 
 		controller2D.onControllerCollidedEvent += OnControllerCollider;
 		controller2D.onTriggerEnterEvent += OnTriggerEnterEvent;
 		controller2D.onTriggerExitEvent += OnTriggerExitEvent;
+		controller2D.onTriggerStayEvent += OnTriggerStayEvent;
+	}
+
+	private void Start()
+	{
+		currentSpeed = runSpeed;
 	}
 
 	private void OnControllerCollider(RaycastHit2D hit)
@@ -54,20 +70,29 @@ public class PlayerController : MonoBehaviour
 				item.HandleItem();
 			}
 		}
+
 		else if (col.gameObject.CompareTag("Laser"))
 		{
-			Toolbox.instance.GetGameManager().RespawnPlayer();
+			Vector2 direction = transform.position - col.transform.position;
+			Knockback(direction, knockbackDuration, knockbackDecreaseOverTime);
+			player.TakeDamage(2f);
 		}
-		else if(col.gameObject.CompareTag("Platform"))
+
+		else if (col.gameObject.CompareTag("Platform"))
 		{
 			transform.parent = col.transform;
 		}
 
 	}
 
+	private void OnTriggerStayEvent(Collider2D col)
+	{
+
+	}
+
 	private void OnTriggerExitEvent(Collider2D col)
 	{
-		if(col.gameObject.CompareTag("Platform"))
+		if (col.gameObject.CompareTag("Platform"))
 		{
 			transform.parent = null;
 		}
@@ -112,10 +137,59 @@ public class PlayerController : MonoBehaviour
 
 		float smoothedMovementFactor = controller2D.isGrounded ? groundDamping : inAirDamping;
 
-		velocity.x = Mathf.Lerp(velocity.x, horizontalInput.x * runSpeed, Time.deltaTime * smoothedMovementFactor);
+		velocity.x = Mathf.Lerp(velocity.x, horizontalInput.x * currentSpeed, Time.deltaTime * smoothedMovementFactor);
 		velocity.y += gravity * Time.deltaTime;
 
-		controller2D.move(velocity * Time.deltaTime);
+		if (!knockback)
+		{
+			controller2D.move(velocity * Time.deltaTime);
+		}
+
 		velocity = controller2D.velocity;
+	}
+
+	public void Knockback(Vector2 direction, float length, float overTime)
+	{
+		if (!knockback)
+		{
+			knockback = true;
+			direction = direction.normalized;
+			StartCoroutine(KnockbackRoutine(direction, length, overTime));
+			spr.color = Color.red;
+		}
+	}
+
+	private IEnumerator KnockbackRoutine(Vector2 direction, float length, float overTime)
+	{
+		float timeLeft = overTime;
+
+		while (timeLeft > 0)
+		{
+			if (timeLeft > Time.deltaTime)
+			{
+				controller2D.move(direction * Time.deltaTime / overTime * length);
+			}
+			else
+			{
+				controller2D.move(direction * timeLeft / overTime * length);
+			}
+
+			timeLeft -= Time.deltaTime;
+			yield return null;
+		}
+
+		knockback = false;
+		spr.color = Color.white;
+		yield break;
+	}
+
+	public void SetMoveSpeed(float newSpeed)
+	{
+		currentSpeed = newSpeed;
+	}
+
+	public void ResetSpeed()
+	{
+		currentSpeed = runSpeed;
 	}
 }

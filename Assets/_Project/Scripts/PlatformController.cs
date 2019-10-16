@@ -33,7 +33,6 @@ public class PlatformController : MonoBehaviour, IActivateable
             if(Vector2.Distance(transform.position, target.position) <= 0.02f)
             {
                 GetNextWayPoint();
-                Debug.Log(Vector2.Distance(transform.position, target.position));
             }
         }
 	}

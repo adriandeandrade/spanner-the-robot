@@ -14,7 +14,7 @@ public class GetInteractions : MonoBehaviour
 
 	// Private Variables
 	private bool canInteract = false;
-	private Interactable lastItemInteracted;
+	private ObjectInteractable lastItemInteracted;
 
 	private void Update()
 	{
@@ -35,7 +35,7 @@ public class GetInteractions : MonoBehaviour
 
 		foreach (Collider2D col in interactable)
 		{
-			Interactable detectedInteractable = col.GetComponent<Interactable>();
+			ObjectInteractable detectedInteractable = col.GetComponent<ObjectInteractable>();
 
 			if (detectedInteractable != null)
 			{

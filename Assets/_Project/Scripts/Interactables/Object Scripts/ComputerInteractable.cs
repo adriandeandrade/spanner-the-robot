@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ComputerInteractable : Interactable
+public class ComputerInteractable : ObjectInteractable
 {
 	// Inspector Fields
 	[Header("Computer Settings")]
 	[SerializeField] private GameObject objectToActivate;
-	[SerializeField] private InteractionUI interactionUI;
 
 	private void Awake()
 	{
@@ -18,18 +17,5 @@ public class ComputerInteractable : Interactable
 	{
 		isInteractable = false;
 		objectToActivate.GetComponent<IActivateable>().Activate();
-	}
-
-	public override void EnableUI()
-	{
-		if (isInteractable)
-		{
-			interactionUI.EnableInteractionUI();
-		}
-	}
-
-	public override void DisableUI()
-	{
-		interactionUI.DisableInteractionUI();
 	}
 }

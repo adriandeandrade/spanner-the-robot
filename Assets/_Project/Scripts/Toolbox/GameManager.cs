@@ -5,35 +5,85 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    // Inspector Fields
-    [Header("Game Manager Setting")]
-    [SerializeField] private int coinsInLevel;
-    
-    // Private Variables
-    private int coinsCollected;
+	// Inspector Fields
+	[Header("Game Manager Setting")]
+	[SerializeField] private int coinsInLevel;
+	[SerializeField] private GameObject levelOverPanel;
+	[SerializeField] private GameObject pauseScreenPanel;
 
-    public void GotoNextLevel()
+	// Private Variables
+	private int coinsCollected;
+	private bool paused;
+
+	public void GotoNextLevel()
+	{
+		int sceneCount = SceneManager.sceneCountInBuildSettings;
+		int nextScene = SceneManager.GetActiveScene().buildIndex + 1;
+
+		if (nextScene + 1 > sceneCount)
+		{
+			// TODO: Handle Game Over
+			return;
+		}
+
+		SceneManager.LoadScene(nextScene);
+        levelOverPanel.SetActive(false);
+	}
+
+	private void Update()
+	{
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			if (paused)
+			{
+				paused = false;
+				DisablePauseScreen();
+			}
+			else
+			{
+				paused = true;
+                ShowPauseScreen();
+			}
+		}
+	}
+
+	public void RespawnPlayer()
+	{
+		int currentScene = SceneManager.GetActiveScene().buildIndex;
+		SceneManager.LoadScene(currentScene);
+	}
+
+	public void AddCoin()
+	{
+		coinsCollected += 1;
+	}
+
+	public void ShowPauseScreen()
+	{
+		pauseScreenPanel.SetActive(true);
+		Time.timeScale = 0f;
+	}
+
+	public void DisablePauseScreen()
+	{
+		pauseScreenPanel.SetActive(false);
+		Time.timeScale = 1f;
+	}
+
+	public void LevelOver()
+	{
+        levelOverPanel.SetActive(true);
+        levelOverPanel.GetComponent<LevelOverScreen>().SetCoinsCollectedText();
+        Time.timeScale = 0f;
+	}
+
+    public int GetCoinsCollected()
     {
-        int sceneCount = SceneManager.sceneCountInBuildSettings;
-        int nextScene = SceneManager.GetActiveScene().buildIndex + 1;
-
-        if(nextScene + 1 > sceneCount)
-        {
-            // TODO: Handle Game Over
-            return;
-        }
-
-        SceneManager.LoadScene(nextScene);
+        return coinsCollected;
     }
 
-    public void RespawnPlayer()
+    public int GetCoinsInLevel()
     {
-        int currentScene =  SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(currentScene);
-    }
-
-    public void AddCoin()
-    {
-        coinsCollected += 1;
+        return coinsInLevel;
     }
 }

@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
-public class DoorInteractable : Interactable
+public class Door : MonoBehaviour, IActivateable
 {
 	// Inspector Fields
+	[SerializeField] private bool isFinalDoor;
 
 	// Private Variables
 	private Animator animator;
@@ -17,13 +18,13 @@ public class DoorInteractable : Interactable
         boxCollider = GetComponent<BoxCollider2D>();
 	}
 
-	public override void Interact()
+	public void Activate()
 	{
 		animator.SetTrigger("OpenDoor");
-	}
 
-    public void OnAnimationFinished()
-    {
-        
-    }
+		if(isFinalDoor)
+		{
+			Toolbox.instance.GetGameManager().LevelOver();
+		}
+	}
 }

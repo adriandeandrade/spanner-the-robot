@@ -212,6 +212,8 @@ MonoBehaviour:
   inAirDamping: 5
   jumpHeight: 4
   jumpButton: 32
+  knockbackDuration: 2.5
+  knockbackDecreaseOverTime: 0.1
 --- !u!114 &6810864880659315748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,9 +228,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   maxEnergy: 10
-  energyDecreaseAmount: 1
-  healthDecreaseAmount: 1
-  healthDecreaseDelay: 2
+  energyDecreaseAmount: 0.7
+  noEnergyMoveSpeed: 6
 --- !u!114 &6103634252335156908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,10 +246,10 @@ MonoBehaviour:
   _skinWidth: 0.02
   platformMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 1280
   triggerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1536
   oneWayPlatformMask:
     serializedVersion: 2
     m_Bits: 0
@@ -302,7 +303,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.059586585, y: -0.00000023841858}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -381,10 +382,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd6c3e77077dadf40a47f2db02f27c55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxInteractionDistance: 0
+  maxInteractionDistance: 1.5
   interactionCircleRadius: 1.2
   interactionCircleOrigin: {fileID: 37270282}
   interactionKey: 102
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!1 &6103634252984942159
 GameObject:
   m_ObjectHideFlags: 0
@@ -626,10 +630,10 @@ RectTransform:
   m_Father: {fileID: 6103634253787869869}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 640, y: -360}
+  m_SizeDelta: {x: 1280, y: 720}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6103634254027506880
 GameObject:

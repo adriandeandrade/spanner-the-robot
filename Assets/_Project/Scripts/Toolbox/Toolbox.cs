@@ -11,10 +11,12 @@ public class Toolbox : MonoBehaviour
 
 	private void InitSingleton()
 	{
-		if (instance == null)
+		if (instance != null)
 		{
-			instance = this;
+			Destroy(instance.gameObject);
 		}
+
+		instance = this;
 
 		DontDestroyOnLoad(gameObject);
 	}

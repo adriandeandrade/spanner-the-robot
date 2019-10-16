@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
-public class ButtonInteractable : Interactable
+public class ButtonInteractable : ObjectInteractable
 {
 	// Inspector Fields
 	[Header("Button Interactable Settings")]
-	[SerializeField] private Interactable objectToActivate;
-	[SerializeField] private InteractionUI interactionUI;
+	[SerializeField] private GameObject objectToActivate;
 
 	// Private Variables
 	private Animator animator;
@@ -24,25 +23,14 @@ public class ButtonInteractable : Interactable
 		animator.SetTrigger("PressButton");
 		isInteractable = false;
 	}
-	public override void EnableUI()
-	{
-		if (isInteractable)
-		{
-			interactionUI.EnableInteractionUI();
-		}
-	}
-
-	public override void DisableUI()
-	{
-		interactionUI.DisableInteractionUI();
-	}
+	
 
 	// Called by animation event
 	public void OnButtonPressAnimationDone()
 	{
 		if (objectToActivate != null)
 		{
-			objectToActivate.Interact();
+			objectToActivate.GetComponent<IActivateable>().Activate();
 		}
 	}
 }
