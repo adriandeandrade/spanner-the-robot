@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
 		}
 
 		SceneManager.LoadScene(nextScene);
+        Time.timeScale = 1;
         levelOverPanel.SetActive(false);
 	}
 
@@ -46,6 +47,11 @@ public class GameManager : MonoBehaviour
 			}
 		}
 	}
+
+    public void GotoMainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
 
 	public void RespawnPlayer()
 	{

@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 6103634252335156886}
   - component: {fileID: 5470017758266886079}
   - component: {fileID: 2114541530}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -249,7 +249,7 @@ MonoBehaviour:
     m_Bits: 1280
   triggerMask:
     serializedVersion: 2
-    m_Bits: 1536
+    m_Bits: 5632
   oneWayPlatformMask:
     serializedVersion: 2
     m_Bits: 0

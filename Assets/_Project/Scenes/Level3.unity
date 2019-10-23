@@ -6433,7 +6433,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 771388394}
-        m_MethodName: DisablePauseScreen
+        m_MethodName: GotoMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6970,7 +6970,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1987127097}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 771388394}
+        m_MethodName: GotoMainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1987127097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7740,6 +7751,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 804274533, guid: 405d8591924321c4b909c37b247f4916, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 7014221334794877100, guid: bc13d616eceb67041a154494cc5492dd,
+        type: 3}
+    - target: {fileID: 804274533, guid: 405d8591924321c4b909c37b247f4916, type: 3}
+      propertyPath: fireInterval
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 405d8591924321c4b909c37b247f4916, type: 3}
 --- !u!1001 &2212028990228525573
@@ -7753,11 +7773,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: melee-enemy-robot_0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2212028991898259494, guid: 10f5fe1b744449a478e5539e42336824,
-        type: 3}
-      propertyPath: m_Layer
-      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 2212028991898259491, guid: 10f5fe1b744449a478e5539e42336824,
         type: 3}
@@ -7813,31 +7828,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8036374301976387783, guid: 10f5fe1b744449a478e5539e42336824,
-        type: 3}
-      propertyPath: m_Layer
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 1704583722, guid: 10f5fe1b744449a478e5539e42336824, type: 3}
-      propertyPath: m_BodyType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1704583722, guid: 10f5fe1b744449a478e5539e42336824, type: 3}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1704583722, guid: 10f5fe1b744449a478e5539e42336824, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1704583721, guid: 10f5fe1b744449a478e5539e42336824, type: 3}
-      propertyPath: platformMask.m_Bits
-      value: 256
-      objectReference: {fileID: 0}
-    - target: {fileID: 1704583721, guid: 10f5fe1b744449a478e5539e42336824, type: 3}
-      propertyPath: triggerMask.m_Bits
-      value: 512
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10f5fe1b744449a478e5539e42336824, type: 3}
