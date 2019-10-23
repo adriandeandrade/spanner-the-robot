@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour
 		else if (col.gameObject.CompareTag("Laser"))
 		{
 			Vector2 direction = transform.position - col.transform.position;
-			Knockback(direction, knockbackDuration, knockbackDecreaseOverTime);
+			Knockback(direction, knockbackDuration, knockbackDecreaseOverTime, true);
 			player.TakeDamage(2f);
 		}
 
@@ -83,6 +83,27 @@ public class PlayerController : MonoBehaviour
 			transform.parent = col.transform;
 		}
 
+        else if(col.gameObject.CompareTag("Enemy"))
+        {
+            Vector2 direction = transform.position - col.transform.position;
+            Knockback(direction, knockbackDuration, knockbackDecreaseOverTime, true);
+            player.TakeDamage(2f);
+        }
+
+        else if(col.gameObject.CompareTag("Bullet"))
+        {
+            Vector2 direction = transform.position - col.transform.position;
+            Knockback(direction, knockbackDuration, knockbackDecreaseOverTime, true);
+            player.TakeDamage(1f);
+            Destroy(col.gameObject);
+        }
+
+        else if(col.gameObject.CompareTag("EnemyHead"))
+        {
+            Knockback(Vector2.up, 0.7f, knockbackDecreaseOverTime, false);
+            BaseEnemy enemyHit = col.gameObject.GetComponentInParent<BaseEnemy>();
+            enemyHit.Kill();
+        }
 	}
 
 	private void OnTriggerStayEvent(Collider2D col)
@@ -148,15 +169,16 @@ public class PlayerController : MonoBehaviour
 		velocity = controller2D.velocity;
 	}
 
-	public void Knockback(Vector2 direction, float length, float overTime)
+	public void Knockback(Vector2 direction, float length, float overTime, bool doDamageColor)
 	{
 		if (!knockback)
 		{
 			knockback = true;
 			direction = direction.normalized;
 			StartCoroutine(KnockbackRoutine(direction, length, overTime));
-			spr.color = Color.red;
-		}
+
+            if(doDamageColor) spr.color = Color.red;
+        }
 	}
 
 	private IEnumerator KnockbackRoutine(Vector2 direction, float length, float overTime)
